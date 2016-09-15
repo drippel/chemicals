@@ -82,6 +82,22 @@ public class ChemicalNamer {
 		return new ArrayList<String>( symbols );
 	}
 
+	public static List<String> generateAllSymbols( String element ){
+		
+		String lelement = element.toLowerCase();
+		
+		List<String> symbols = new ArrayList<String>(); 
+		
+		for( int outer = 0; outer < lelement.length() - 1; outer++ ){
+			for( int inner = (outer + 1); inner < lelement.length(); inner++ ){
+				String symbol = Character.toUpperCase(lelement.charAt(outer)) + "" + lelement.charAt(inner);
+				symbols.add(symbol);
+			}
+		}
+		
+		return symbols;
+	}
+
 	public static List<String> sortSymbols( List<String> symbols ){
 		List<String> copy = new ArrayList<String>(symbols);
 		java.util.Collections.sort(copy);
